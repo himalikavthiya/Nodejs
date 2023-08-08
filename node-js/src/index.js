@@ -1,8 +1,8 @@
 const http = require('http'); //require core module http
 const express = require('express'); //require express freamwork
-// const path=require('path');
-const app = express(); //use express in app varible
 
+const app = express(); //use express in app varible
+app.set('view engine','ejs')
 //using http module create server
 // http.createServer((req,res)=>{
 //     res.writeHead(200,{"content-type":"text/html"});
@@ -20,3 +20,6 @@ app.get('/about', (req, res) => {
 });
 app.listen(4500);
 //End code........
+app.get('/login',(req,res)=>{
+    res.render('login')
+});
