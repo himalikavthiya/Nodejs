@@ -1,8 +1,10 @@
 const http = require('http'); //require core module http
 const express = require('express'); //require express freamwork
+const { connectDB } = require('./db/dbconnection');
+const config = require('./config/config')
 
 const app = express(); //use express in app varible
-app.set('view engine','ejs')
+// app.set('view engine','ejs')
 //using http module create server
 // http.createServer((req,res)=>{
 //     res.writeHead(200,{"content-type":"text/html"});
@@ -11,15 +13,13 @@ app.set('view engine','ejs')
 //     res.end();
 // }).listen(4500);
 
-//create server using express...
-app.get('', (req, res) => {
-    res.send("<h1>Welcome to Home page</h1>");
-});
-app.get('/about', (req, res) => {
-    res.send("<h1>Welcome to About page</h1>");
-});
-app.listen(4500);
-//End code........
-app.get('/login',(req,res)=>{
-    res.render('login')
+/* Database connection */
+connectDB();
+
+
+/* create server using http */
+const server = http.createServer(app);
+
+server.listen(config.port, () => {
+  console.log("server listning");
 });
