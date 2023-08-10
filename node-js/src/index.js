@@ -1,21 +1,23 @@
 const http = require('http'); //require core module http
 const express = require('express'); //require express freamwork
 const { connectDB } = require('./db/dbconnection');
-const config = require('./config/config')
+const config = require('./config/config');
+const routes = require('./routes/v1');
+
 
 const app = express(); //use express in app varible
 // app.set('view engine','ejs')
-//using http module create server
-// http.createServer((req,res)=>{
-//     res.writeHead(200,{"content-type":"text/html"});
-//     res.write("<h1>Hello world !</h1>");
-//     res.write("<h2>Welcome to HTTP server</h2>");
-//     res.end();
-// }).listen(4500);
+
+app.use("/v1",routes);
+
 
 /* Database connection */
 connectDB();
 
+/** whenever route not created and you try to use that route then throw error. */
+app.use((req, res, next) => {
+  next(new Error("Route not found!"));
+});
 
 /* create server using http */
 const server = http.createServer(app);
