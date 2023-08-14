@@ -10,6 +10,7 @@
   "author": "himali",
   "license": "ISC",
   "dependencies": {
+    "body-parser": "^1.20.2",
     "cron": "^2.3.1",
     "dotenv": "^16.3.1",
     "ejs": "^3.1.9",
