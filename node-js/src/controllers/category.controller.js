@@ -1,12 +1,13 @@
 
-const { userService } = require("../services");
+const { categoryService } = require("../services");
 
 /** create user */
-const createUser = async (req, res) => {
+const createCategory = async (req, res) => {
+
     try {
       const reqBody = req.body;
       console.log(req.body);
-      const user = await userService.createUser(reqBody);
+      const user = await categoryService.createCategory(reqBody);
 
       // const userExists = await userService.getUserByEmail(reqBody.email);
       // if (userExists) {
@@ -25,4 +26,4 @@ const createUser = async (req, res) => {
       res.status(400).json({ success: false, message: error.message });
     }
   };
-  module.exports={createUser};
+  module.exports={createCategory};

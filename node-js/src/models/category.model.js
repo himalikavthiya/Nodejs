@@ -4,7 +4,7 @@ const categorySchema = new mongoose.Schema({
         type: String,
         trim: true
     },
-    cotegory_dic: {
+    category_dic: {
         type: String,
         trim: true
     },
