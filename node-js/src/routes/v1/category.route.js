@@ -14,8 +14,8 @@ router.post('/create-category',
 
 
 /* Get user list */
-router.get('/list',(req,res)=>{
-    res.send("Get Api Execute successfully!");
-});
+router.get('/category-list',
+    categoryController.getCategoryList
+);
 
 module.exports=router;

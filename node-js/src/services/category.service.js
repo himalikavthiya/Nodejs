@@ -8,4 +8,12 @@ const { category } = require("../models");
 const createCategory = async (reqBody) => {
   return category.create(reqBody);
 };
-module.exports={createCategory}
+
+/**get category List */
+const getCategoryList =async(req,res)=>{
+   return category.find();
+}
+module.exports={
+  createCategory,
+  getCategoryList
+}

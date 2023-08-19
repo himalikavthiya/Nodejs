@@ -13,7 +13,7 @@ router.post('/create-user',
 
 /* Get user list */
 router.get('/list',
-    
+userController.getUserList
 )
 
 module.exports=router;
