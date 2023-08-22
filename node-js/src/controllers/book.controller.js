@@ -18,8 +18,8 @@ const createBookDetail=async(req,res)=>{
         message:error.message});
     }
 };
-/**get book list */
 
+/**get book list */
 const getBooklist = async (req, res) => {
     try {
       const getBooklist = await bookService.getBookList(req,res);
@@ -28,7 +28,6 @@ const getBooklist = async (req, res) => {
         message: "Get Book list successfully!",
         data: getBooklist,
       });
-  
     } catch (error) {
       res.status(400).json({
         success: false,
@@ -36,7 +35,24 @@ const getBooklist = async (req, res) => {
       });
     }
   };
+
+  /**Delete Book id */
+  const deleteBook=async (req,res)=>{
+    try{
+      const bookId=req.params.bookId;
+      await bookService.deleteBook;
+      res.status(200).json({
+        success:true,
+        message:"Book Id delete succesfully!",
+      });
+    }catch(error){
+        res.status(400).json({success:false,
+        message:error.message});
+      }
+    }
+
 module.exports={
     createBookDetail,
-    getBooklist
+    getBooklist,
+    deleteBook
 }

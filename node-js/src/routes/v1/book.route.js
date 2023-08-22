@@ -15,4 +15,10 @@ bookController.createBookDetail
 router.get('/book-list',
 bookController.getBooklist
 );
+
+/**Delete Book details by id*/
+// router.delete('/delete-book/:deteleId',
+// bookController.
+// )
+
 module.exports=router;
