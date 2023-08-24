@@ -5,7 +5,7 @@ const {userService} = require("../services");
 const createUser = async (req, res) => {
   try {
     const reqBody = req.body;
-    console.log(req.body);
+    // console.log(req.body);
     const user = await userService.createUser(reqBody);
 
     // const userExists = await userService.getUserByEmail(reqBody.email);

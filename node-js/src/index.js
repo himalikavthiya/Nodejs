@@ -1,8 +1,8 @@
-const http = require('http'); //require core module http
-const express = require('express'); //require express freamwork
-const { connectDB } = require('./db/dbconnection');
-const config = require('./config/config');
-const routes = require('./routes/v1');
+const http = require("http"); //require core module http
+const express = require("express"); //require express freamwork
+const { connectDB } = require("./db/dbconnection");
+const config = require("./config/config");
+const routes = require("./routes/v1");
 const bodyParser = require("body-parser");
 
 const app = express(); //use express in app varible
@@ -12,8 +12,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(bodyParser.json());
 
-app.use("/v1",routes);
-
+app.use("/v1", routes);
 
 /* Database connection */
 connectDB();
@@ -23,9 +22,8 @@ app.use((req, res, next) => {
   next(new Error("Route not found!"));
 });
 
-
-const server = http.createServer(app)
+const server = http.createServer(app);
 
 server.listen(config.port, () => {
   console.log("server listning");
-  });
+});
