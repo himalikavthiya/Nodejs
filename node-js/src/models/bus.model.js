@@ -22,7 +22,6 @@ const busDetailSchema = new mongoose.Schema(
     },
     bus_available: {
       type: Boolean,
-      required: true,
       default: false,
     },
   },

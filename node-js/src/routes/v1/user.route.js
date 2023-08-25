@@ -10,10 +10,9 @@ router.post('/create-user',
  userController.createUser
 );
 
-
 /* Get user list */
 router.get('/list',
 userController.getUserList
-)
+);
 
 module.exports=router;

@@ -1,6 +1,4 @@
-const {
-  bus
-} = require("../models");
+const { bus } = require("../models");
 
 /**create bus detail */
 const createBusDetail = async (reqBody) => {
@@ -9,7 +7,8 @@ const createBusDetail = async (reqBody) => {
 
 /**Get Bus detail List */
 const getBusDetailList = async (req, res) => {
-  return bus.find();
+  // return bus.find();
+  return bus.find({ $or: [{ bus_available: true }] });
 };
 
 /**get bus detail by busId  */

@@ -18,7 +18,7 @@ const movieSchema = mongoose.Schema({
         trim: true,
     },
     movie_actors: {
-        type: String,
+        type: Array,
         trim: true,
     },
     movie_releaseYear: {
@@ -30,6 +30,7 @@ const movieSchema = mongoose.Schema({
     },
 }, {
     timestamps: true,
+    versionKey:false
 });
 
 const movie = mongoose.model('movie', movieSchema);

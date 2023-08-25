@@ -44,10 +44,10 @@ const getStationaryList = async (req, res) => {
 const deleteStationary = async (req, res) => {
   try {
     const stationaryId = req.params.stationaryId;
-    const StationaryExists = await stationaryService.getstationaryId(
+    const stationaryExists = await stationaryService.getstationaryId(
       stationaryId
     );
-    if (!StationaryExists) {
+    if (!stationaryExists) {
       throw new Error("Stationary not found!");
     }
     await stationaryService.deleteStationaryId(stationaryId);
@@ -66,5 +66,5 @@ const deleteStationary = async (req, res) => {
 module.exports = {
   createStationary,
   getStationaryList,
-  deleteStationary
+  deleteStationary,
 };

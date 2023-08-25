@@ -1,28 +1,32 @@
 const mongoose = require("mongoose");
 
-const jewellerySchema = new mongoose.Schema({
-    jewellary_name: {
-        type: String,
-        trim: true,
+const jewellerySchema = new mongoose.Schema(
+  {
+    jewellery_name: {
+      type: String,
+      trim: true,
     },
-    jewellary_price: {
-        type: Number,
-        trim: true,
+    jewellery_price: {
+      type: Number,
+      trim: true,
     },
-    jewellary_dis: {
-        type: String,
-        trim: true,
+    jewellery_dis: {
+      type: String,
+      trim: true,
     },
     quantity: {
-        type: Number,
+      type: Number,
+      default: 0,
     },
-    jewellary_available: {
-        type: Boolean,
+    jewellery_available: {
+      type: Boolean,
     },
-}, {
+  },
+  {
     timestamps: true,
-});
+  }
+);
 
-const jewellery=mongoose.model('jewellery',jewellerySchema);
+const jewellery = mongoose.model("jewellery", jewellerySchema);
 
-module.exports=jewellery;
+module.exports = jewellery;

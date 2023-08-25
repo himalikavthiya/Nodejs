@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    last_name: {
+    first_name: {
       type: String,
       trim: true,
     },
@@ -19,6 +19,7 @@ const userSchema = new mongoose.Schema(
     },
     is_active: {
       type: Boolean,
+      
     },
   },
   {
