@@ -7,7 +7,8 @@ const createStationary=async (reqBody)=>{
 
 /**Get stationary list */
 const getStationaryList=async(req,res)=>{
-    return stationary.find();
+    // return stationary.find();
+    return stationary.find({$or:[{is_active:false}]});
 };
 
 /**delete stationary detail by id */

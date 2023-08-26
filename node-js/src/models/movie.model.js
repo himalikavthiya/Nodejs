@@ -18,7 +18,7 @@ const movieSchema = mongoose.Schema({
         trim: true,
     },
     movie_actors: {
-        type: Array,
+        type: String,
         trim: true,
     },
     movie_releaseYear: {

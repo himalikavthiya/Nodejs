@@ -18,6 +18,7 @@ const travelSchema = new mongoose.Schema(
     },
     trip_des: {
       type: String,
+      trim:true
     },
     numOfTraveler: {
       type: Number,

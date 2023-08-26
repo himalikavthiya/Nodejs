@@ -7,7 +7,8 @@ const createTravel=async(reqBody)=>{
 
 /**Get travel list */
 const getTravelList=async(req,res)=>{
-    return travel.find();
+    // return travel.find();
+    return travel.find({$or:[{trip_country:india}]});
 };
 
 /**get travel Id */

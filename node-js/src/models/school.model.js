@@ -13,7 +13,7 @@ const schoolSchema = new mongoose.Schema(
       type: String,
     },
     student_detail: {
-      type: Array,
+      type: String,
     },
     facalty_detail: {
       type: String,

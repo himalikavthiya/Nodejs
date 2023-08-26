@@ -11,7 +11,7 @@ const createCategory = async (reqBody) => {
 
 /**get category List */
 const getCategoryList =async(req,res)=>{
-   return category.find();
+   return category.find({$or:[{is_active:false}]});
 }
 module.exports={
   createCategory,

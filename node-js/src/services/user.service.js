@@ -12,6 +12,6 @@ const createUser = async (reqBody) => {
 
 /**Get user List */
 const getUserList = async (filter, options) => {
-  return User.find({$or:[{is_active:false}]});
+  return User.find({ $or: [{ is_active: false }] });
 };
 module.exports = { createUser, getUserList };

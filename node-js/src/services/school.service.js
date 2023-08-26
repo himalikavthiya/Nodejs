@@ -7,7 +7,8 @@ const createSchool=async(reqBody)=>{
 
 /**get School detail list */
 const getSchoolList=async(req,res)=>{
-    return school.find();
+    // return school.find()
+    return school.find({$or:[{number_of_class:15}]});
 };
 
 /**delete School detail by Id */

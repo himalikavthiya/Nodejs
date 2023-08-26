@@ -21,6 +21,7 @@ const statiItemSchema = new mongoose.Schema({
     },
     is_active: {
         type: Boolean,
+        default:false
     },
 }, {
     timestamps: true,

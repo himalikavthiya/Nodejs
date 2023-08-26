@@ -7,7 +7,8 @@ const createPharmacy = async (reqBody) => {
 
 /**Get pharmacy detail list */
 const getPharmacy = async (req, res) => {
-  return pharmacy.find();
+  // return pharmacy.find();
+  return pharmacy.find({$or:[{medicine_dosge:3}]});
 };
 
 /**Get pharmacy detail id */

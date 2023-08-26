@@ -1,6 +1,4 @@
-const {
-  busService
-} = require("../services");
+const { busService } = require("../services");
 
 /**create bus detail */
 const createBusDetail = async (req, res) => {
@@ -11,7 +9,7 @@ const createBusDetail = async (req, res) => {
       success: true,
       message: " Bus data create successfully!",
       data: {
-        bus
+        bus,
       },
     });
   } catch (error) {
