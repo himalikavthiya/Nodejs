@@ -8,7 +8,7 @@ const createHotelDetails = async (reqBody) => {
 /** get hotel list*/
 const getHotelList = async (req, res) => {
   // return hotel.find();
-  return hotel.find({$or:[{is_active:true}]});
+  return hotel.find({ $or: [{ is_active: true }] });
 };
 
 /**Get Hotel details by id */
@@ -21,9 +21,15 @@ const deteleHotelId = async (hotelId) => {
   return hotel.findByIdAndDelete(hotelId);
 };
 
+/**update hotel */
+const updateHotelId = async (hotelId, updateBody) => {
+  return hotel.findByIdAndUpdate(hotelId, { $set: updateBody });
+};
+
 module.exports = {
   createHotelDetails,
   getHotelList,
   getHotelId,
   deteleHotelId,
+  updateHotelId,
 };

@@ -11,9 +11,12 @@ validate(hotelValidation.createHotel),
  hotelController.createHotelDetail);
 
 /**get Hotel data list*/
-router.get("/get-Hotel-List", hotelController.getHotelList);
+router.get("/getHotelList", hotelController.getHotelList);
 
 /** Delete hotel data  */
-router.delete("/delete-Hotel-Id/:hotelId", hotelController.deteleHotelId);
+router.delete("/deleteHotel/:hotelId", hotelController.deteleHotelId);
+
+/** Update hotel data  */
+router.put("/updateHotel/:hotelId", hotelController.updateHotel);
 
 module.exports = router;

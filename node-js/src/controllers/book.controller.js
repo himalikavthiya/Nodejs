@@ -51,8 +51,27 @@ const deleteBook = async (req, res) => {
   }
 };
 
+/**Update Book id */
+const updateBook = async (req, res) => {
+  try {
+    const bookId = req.params.bookId;
+    const bookExists = await bookService.getBookId(bookId);
+    if (!bookExists) {
+      throw new Error("Book data not found");
+    }
+    await bookService.updateBook(bookId,req.body);
+    res.status(200).json({
+      success: true,
+      message: "Book Id Update succesfully!",
+    });
+  } catch (error) {
+    res.status(400).json({ success: false, message: error.message });
+  }
+};
+
 module.exports = {
   createBookDetail,
   getBooklist,
   deleteBook,
+  updateBook
 };

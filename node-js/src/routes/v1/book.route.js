@@ -18,4 +18,7 @@ router.get("/book-list", bookController.getBooklist);
 /**Delete Book details by id*/
 router.delete("/delete-book/:bookId", bookController.deleteBook);
 
+/**Update Book details by id*/
+router.put("/update-book/:bookId", bookController.updateBook);
+
 module.exports = router;

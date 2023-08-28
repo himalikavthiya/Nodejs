@@ -13,8 +13,10 @@ travelController.createTravel);
 /**Get travel detail List */
 router.get('/list-travel',travelController.getTravelList);
 
-/**Delete travel detail list */
+/**delete travel detail list */
 router.delete('/delete-travel/:travelId',travelController.deletetravel);
 
+/**update travel detail By ID */
+router.put('/update-travel/:travelId',travelController.updateTravel);
 
 module.exports = router;

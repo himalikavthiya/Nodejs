@@ -20,9 +20,16 @@ const getBusId = async (busId) => {
 const deleteBusId = async (busId) => {
   return bus.findByIdAndDelete(busId);
 };
+
+/**Update Bus details id */
+const updateBusId = async (busId, updateBody) => {
+  return bus.findByIdAndUpdate(busId, { $set: updateBody });
+};
+
 module.exports = {
   createBusDetail,
   getBusDetailList,
   getBusId,
   deleteBusId,
+  updateBusId,
 };

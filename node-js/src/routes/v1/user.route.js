@@ -16,4 +16,8 @@ router.get('/list',
 userController.getUserList
 );
 
+/**Update user detail by Id */
+router.put('/update-user/:userId',
+userController.upadateUserDetail)
+
 module.exports=router;

@@ -7,8 +7,8 @@ const createPharmacy = async (reqBody) => {
 
 /**Get pharmacy detail list */
 const getPharmacy = async (req, res) => {
-  // return pharmacy.find();
-  return pharmacy.find({$or:[{medicine_dosge:3}]});
+  return pharmacy.find();
+  // return pharmacy.find({$or:[{medicine_dosge:3}]});
 };
 
 /**Get pharmacy detail id */
@@ -21,9 +21,15 @@ const deletePharmacyId = async (pharmacyId) => {
   return pharmacy.findByIdAndDelete(pharmacyId);
 };
 
+/**Update pharmacy detail Id */
+const updatePharmacyId=async(pharmacyId,upadateBody)=>{
+  return pharmacy.findByIdAndUpdate(pharmacyId,{$set:upadateBody})
+}
+
 module.exports = {
   createPharmacy,
   getPharmacy,
   getPharmacyId,
-  deletePharmacyId
+  deletePharmacyId,
+  updatePharmacyId
 };

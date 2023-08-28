@@ -63,8 +63,32 @@ const deleteStationary = async (req, res) => {
   }
 };
 
+/**Upadate record By ID */
+const updateStationary=async(req,res)=>{
+  try{
+    const stationaryId = req.params.stationaryId;
+    const stationaryExists = await stationaryService.getstationaryId(stationaryId);
+    if (!stationaryExists) {
+      throw new Error("stationary Id not found!");
+    }
+    await stationaryService.updateStationary(stationaryId,req.body);
+    res.status(200).json({
+      success: true,
+      message: "stationary Id update successfully!",
+    });
+  }catch(error){
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
+
+
 module.exports = {
   createStationary,
   getStationaryList,
   deleteStationary,
+  updateStationary
 };

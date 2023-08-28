@@ -15,5 +15,8 @@ router.get('/list-grocery',groceryController.getGroceryList);
 /**delete grocery data */
 router.delete('/delete-grocery/:groceryId',groceryController.deleteGrocery);
 
+/**Update grocery data */
+router.put('/update-grocery/:groceryId',groceryController.updateGrocery);
+
 
 module.exports = router;

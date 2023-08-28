@@ -1,11 +1,10 @@
-const {options} = require("joi");
-const {userService} = require("../services");
+const { options } = require("joi");
+const { userService } = require("../services");
 
 /** create user */
 const createUser = async (req, res) => {
   try {
     const reqBody = req.body;
-    // console.log(req.body);
     const user = await userService.createUser(reqBody);
 
     // const userExists = await userService.getUserByEmail(reqBody.email);
@@ -20,37 +19,57 @@ const createUser = async (req, res) => {
       success: true,
       message: "User create successfully!",
       data: {
-        user
+        user,
       },
     });
   } catch (error) {
     res.status(400).json({
       success: false,
-      message: error.message
+      message: error.message,
     });
   }
 };
 
 /**Get User List */
-
 const getUserList = async (req, res) => {
   try {
-    const getUserList = await userService.getUserList(req,res);
+    const getUserList = await userService.getUserList(req, res);
     res.status(200).json({
       success: true,
       message: "Get user list successfully!",
       data: getUserList,
     });
-
   } catch (error) {
     res.status(400).json({
       success: false,
-      message: error.message
+      message: error.message,
+    });
+  }
+};
+
+/**Update data by id */
+const upadateUserDetail = async (req, res) => {
+  try {
+    const userId = req.params.userId;
+    const userExists = await userService.getUserId(userId);
+    if (!userExists) {
+      throw new Error("User not Found!");
+    }
+    await userService.upadateUser(userId, req.body);
+    res.status(200).json({
+      success: true,
+      message: "User details update successfully!",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
     });
   }
 };
 
 module.exports = {
   createUser,
-  getUserList
+  getUserList,
+  upadateUserDetail
 };

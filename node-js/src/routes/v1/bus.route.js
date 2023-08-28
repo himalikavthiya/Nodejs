@@ -16,4 +16,8 @@ router.get("/bus-list", busController.getBusDetailList);
 /**Delete Bus Detail */
 router.delete("/delete-bus/:busId", busController.deleteBusId);
 
+/**Update Bus Detail */
+router.put("/update-bus/:busId", busController.updateBusId);
+
+
 module.exports = router;

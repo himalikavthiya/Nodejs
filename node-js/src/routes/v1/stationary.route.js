@@ -18,4 +18,7 @@ router.get('/list-stationary', stationaryController.getStationaryList);
 /**delete stationary detail */
 router.delete('/delete-stationary/:stationaryId',stationaryController.deleteStationary);
 
+/**Upadte staionary By ID */
+router.put('/upadate-stationary/:stationaryId',stationaryController.updateStationary);
+
 module.exports = router;

@@ -13,8 +13,12 @@ router.post(
 );
 
 /**Get school detail List */
-router.get("/getschool-list", schoolController.getSchoolList);
+router.get("/list-school", schoolController.getSchoolList);
 
-router.delete("/deleteschool/:schoolId", schoolController.deleteSchool);
+/**delete school detail Id */
+router.delete("/delete-school/:schoolId", schoolController.deleteSchool);
+
+/**update school detail Id */
+router.put("/update-school/:schoolId", schoolController.updateSchool);
 
 module.exports = router;

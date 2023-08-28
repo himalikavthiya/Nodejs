@@ -10,10 +10,24 @@ const createCategory = async (reqBody) => {
 };
 
 /**get category List */
-const getCategoryList =async(req,res)=>{
+const getCategoryList = async (req, res) => {
+  // return category.find();
    return category.find({$or:[{is_active:false}]});
-}
-module.exports={
+};
+
+/**Get category ID */
+const getCategoryId = async (categoryId) => {
+  return category.findById(categoryId);
+};
+
+/**update category data by Id */
+const updateCategory = async (categoryId, updateBody) => {
+  return category.findByIdAndUpdate(categoryId, { $set: updateBody });
+};
+
+module.exports = {
   createCategory,
-  getCategoryList
-}
+  getCategoryList,
+  getCategoryId,
+  updateCategory,
+};

@@ -43,7 +43,7 @@ const deletetravel = async (req, res) => {
     if (!travelExists) {
       throw new Error("Trip Id not found!");
     }
-    await travelService.deletetravel(travelId);
+    await travelService.deleteTravel(travelId);
     res.status(200).json({
       success: true,
       message: "trip id delete successfully!",
@@ -56,8 +56,30 @@ const deletetravel = async (req, res) => {
   }
 };
 
+/**Upadte data by id */
+const updateTravel=async(req,res)=>{
+  try{
+    const travelId = req.params.travelId;
+    const travelExists = await travelService.getTravelId(travelId);
+    if (!travelExists) {
+      throw new Error("Trip Id not found!");
+    }
+    await travelService.updateTravel(travelId,req.body);
+    res.status(200).json({
+      success: true,
+      message: "trip id update successfully!",
+    });
+  }catch(error){
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createTravel,
   getTravelList,
-  deletetravel
+  deletetravel,
+  updateTravel
 };

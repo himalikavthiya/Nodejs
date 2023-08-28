@@ -7,7 +7,7 @@ const createBookDetail = async (reqBody) => {
 
 /**get Book list */
 const getBookList = async (req,res) => {
-//   return book.find();
+  // return book.find();
 return book.find({$or:[{is_active:true}]});
 
 };
@@ -16,13 +16,22 @@ return book.find({$or:[{is_active:true}]});
 const getBookId = async (bookId) => {
   return book.findById(bookId);
 };
+
 /**Delete Book id */
 const deleteBook = async (bookId) => {
   return book.findByIdAndDelete(bookId);
 };
+
+/**Update Book id */
+const updateBook = async (bookId,updateBody) => {
+  return book.findByIdAndUpdate(bookId,{$set:updateBody});
+};
+
+
 module.exports = {
   createBookDetail,
   getBookList,
   getBookId,
   deleteBook,
+  updateBook
 };

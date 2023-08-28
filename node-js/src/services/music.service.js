@@ -7,8 +7,8 @@ const createMusic = async (reqBody) => {
 
 /**get music data list */
 const getMusicList = async (req, res) => {
-//   return music.find();
-  return music.find({$or:[{mimetype:"audio/aac"}]});
+  //   return music.find();
+  return music.find({ $or: [{ mimetype: "audio/aac" }] });
 };
 
 /**get music data Id */
@@ -21,9 +21,15 @@ const deleteMusicId = async (musicId) => {
   return music.findByIdAndDelete(musicId);
 };
 
+/**Update music detail Id */
+const updateMusicId = async (musicId, upadateBody) => {
+  return music.findByIdAndUpdate(musicId, { $set: upadateBody });
+};
+
 module.exports = {
   createMusic,
   getMusicList,
   getMusicId,
   deleteMusicId,
+  updateMusicId,
 };

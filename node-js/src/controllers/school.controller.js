@@ -58,8 +58,30 @@ const deleteSchool = async (req, res) => {
   }
 };
 
+/**Upadate School detail */
+const updateSchool = async (req, res) => {
+  try {
+    const schoolId = req.params.schoolId;
+    const schoolExists = await schoolService.getSchoolId(schoolId);
+    if (!schoolExists) {
+      throw new Error(`${schoolExists} is not found`);
+    }
+    await schoolService.updateSchool(schoolId,req.body);
+    res.status(200).json({
+      success: true,
+      message: "Upadate School detail successfully !",
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createSchool,
   getSchoolList,
   deleteSchool,
+  updateSchool
 };

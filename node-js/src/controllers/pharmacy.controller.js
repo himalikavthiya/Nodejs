@@ -56,8 +56,30 @@ const deletePharmacy = async (req, res) => {
   }
 };
 
+/**Upadate pharmacy detail by Id */
+const upadatePharmcy = async (req, res) => {
+  try {
+    const pharmacyId = req.params.pharmacyId;
+    const pharmacyExists = await pharmacyService.getPharmacyId(pharmacyId);
+    if (!pharmacyExists) {
+      throw new Error("Pharmacy Id not found!");
+    }
+    await pharmacyService.updatePharmacyId(pharmacyId, req.body);
+    res.status(200).json({
+      success: true,
+      message: `${pharmacyId} is data upadate successfully !`,
+    });
+  } catch (error) {
+    res.status(400).json({
+      success: false,
+      message: error.message,
+    });
+  }
+};
+
 module.exports = {
   createPharmacy,
   getPharmacyList,
-  deletePharmacy
+  deletePharmacy,
+  upadatePharmcy,
 };

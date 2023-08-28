@@ -6,24 +6,30 @@ const createJewellery = async (reqBody) => {
 };
 
 /**get jewellary detail list */
-const getJewelleryList=async(req,res)=>{
-  return jewellery.find({$or:[{quantity:0}]});
+const getJewelleryList = async (req, res) => {
+  return jewellery.find({ $or: [{ quantity: 0 }] });
   // return jewellery.find();
 };
 
 /**get jewellery Id*/
-const getJewelleryId=async(jewelleryId)=>{
+const getJewelleryId = async (jewelleryId) => {
   return jewellery.findById(jewelleryId);
 };
 
 /**delete jewellery detail id */
-const deleteJewelleryId=async(jewelleryId)=>{
+const deleteJewelleryId = async (jewelleryId) => {
   return jewellery.findByIdAndDelete(jewelleryId);
 };
 
-module.exports={
-    createJewellery,
-    getJewelleryList,
-    getJewelleryId,
-    deleteJewelleryId
-}
+/**Update jewellery detail Id */
+const updateJewelleryId = async (jewelleryId, upadateBody) => {
+  return jewellery.findByIdAndUpdate(jewelleryId, { $set: upadateBody });
+};
+
+module.exports = {
+  createJewellery,
+  getJewelleryList,
+  getJewelleryId,
+  deleteJewelleryId,
+  updateJewelleryId,
+};
