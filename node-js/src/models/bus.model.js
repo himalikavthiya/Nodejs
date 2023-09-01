@@ -16,6 +16,10 @@ const busDetailSchema = new mongoose.Schema(
     route_price: {
       type: Number,
     },
+    travel:{
+      type:mongoose.Types.ObjectId,
+      ref:"travel",
+    },
     bus_date: {
       type: Date,
       default: Date.now,

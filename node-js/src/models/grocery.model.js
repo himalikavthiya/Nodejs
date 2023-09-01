@@ -14,6 +14,10 @@ const grocerySchema = new mongoose.Schema(
     availble_stock: {
       type: String,
     },
+    category:{
+      type:mongoose.Types.ObjectId,
+      ref:"category"
+    },
     is_active: {
       type: Boolean,
       default: true,

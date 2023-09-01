@@ -6,7 +6,7 @@ const userSchema = new mongoose.Schema(
       type: String,
       trim: true,
     },
-    first_name: {
+    last_name: {
       type: String,
       trim: true,
     },
@@ -17,9 +17,12 @@ const userSchema = new mongoose.Schema(
     password: {
       type: String,
     },
+    hotel: {
+      type: mongoose.Types.ObjectId,
+      ref: "hotelmgt",
+    },
     is_active: {
       type: Boolean,
-      
     },
   },
   {
